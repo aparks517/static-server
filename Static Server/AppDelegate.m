@@ -7,16 +7,23 @@
 //
 
 #import "AppDelegate.h"
+#import "Server.h"
 
 @interface AppDelegate ()
 
-@property (weak) IBOutlet NSWindow *window;
+@property NSMutableArray *servers;
+
 @end
 
 @implementation AppDelegate
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
-    // Insert code here to initialize your application
+    // Hold references to server window controllers until their windows close
+    _servers = [NSMutableArray array];
+    [NSNotificationCenter.defaultCenter addObserver:self
+                                           selector:@selector(windowWillClose:)
+                                               name:NSWindowWillCloseNotification
+                                             object:nil];
 }
 
 
@@ -24,5 +31,22 @@
     // Insert code here to tear down your application
 }
 
+- (IBAction)open:(id)sender {
+    // Get path to serve from open panel
+    NSOpenPanel *panel = [NSOpenPanel openPanel];
+    panel.canChooseFiles = NO;
+    panel.canChooseDirectories = YES;
+    [panel runModal];
+    
+    // Server window with selected path
+    Server *server = [[Server alloc] initWithWindowNibName:@"Server"];
+    server.root = panel.URL;
+    [server showWindow:sender];
+    [_servers addObject:server];
+}
+
+- (void)windowWillClose:(NSNotification *)sender {
+    [_servers removeObject:[sender.object windowController]];
+}
 
 @end

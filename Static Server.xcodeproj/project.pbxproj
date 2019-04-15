@@ -7,11 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		ED870A272264D8ED007EEB60 /* THFHTTPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = ED870A262264D8ED007EEB60 /* THFHTTPRequest.m */; };
+		ED870A292264D911007EEB60 /* THFHTTPRequestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = ED870A282264D911007EEB60 /* THFHTTPRequestTests.m */; };
 		EDFF051C2260B60E00943CC2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EDFF051B2260B60E00943CC2 /* AppDelegate.m */; };
 		EDFF051E2260B60F00943CC2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EDFF051D2260B60F00943CC2 /* Assets.xcassets */; };
 		EDFF05212260B60F00943CC2 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDFF051F2260B60F00943CC2 /* MainMenu.xib */; };
 		EDFF05242260B60F00943CC2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = EDFF05232260B60F00943CC2 /* main.m */; };
 		EDFF052F2260B60F00943CC2 /* Static_ServerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EDFF052E2260B60F00943CC2 /* Static_ServerTests.m */; };
+		EDFF053C2260B89100943CC2 /* Server.m in Sources */ = {isa = PBXBuildFile; fileRef = EDFF053A2260B89100943CC2 /* Server.m */; };
+		EDFF053D2260B89100943CC2 /* Server.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDFF053B2260B89100943CC2 /* Server.xib */; };
+		EDFF05402260C45400943CC2 /* THFListener.m in Sources */ = {isa = PBXBuildFile; fileRef = EDFF053F2260C45400943CC2 /* THFListener.m */; };
+		EDFF05432260F9A100943CC2 /* THFListenerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EDFF05422260F9A100943CC2 /* THFListenerTests.m */; };
+		EDFF05462260FF1C00943CC2 /* THFSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = EDFF05452260FF1C00943CC2 /* THFSocket.m */; };
+		EDFF05482261027100943CC2 /* THFSocketTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EDFF05472261027100943CC2 /* THFSocketTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -25,6 +33,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		ED870A252264D8EC007EEB60 /* THFHTTPRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THFHTTPRequest.h; sourceTree = "<group>"; };
+		ED870A262264D8ED007EEB60 /* THFHTTPRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = THFHTTPRequest.m; sourceTree = "<group>"; };
+		ED870A282264D911007EEB60 /* THFHTTPRequestTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = THFHTTPRequestTests.m; sourceTree = "<group>"; };
 		EDFF05172260B60E00943CC2 /* Static Server.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Static Server.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDFF051A2260B60E00943CC2 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		EDFF051B2260B60E00943CC2 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -36,6 +47,16 @@
 		EDFF052A2260B60F00943CC2 /* Static ServerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Static ServerTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDFF052E2260B60F00943CC2 /* Static_ServerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Static_ServerTests.m; sourceTree = "<group>"; };
 		EDFF05302260B60F00943CC2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EDFF05392260B89100943CC2 /* Server.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Server.h; sourceTree = "<group>"; };
+		EDFF053A2260B89100943CC2 /* Server.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Server.m; sourceTree = "<group>"; };
+		EDFF053B2260B89100943CC2 /* Server.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Server.xib; sourceTree = "<group>"; };
+		EDFF053E2260C45400943CC2 /* THFListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THFListener.h; sourceTree = "<group>"; };
+		EDFF053F2260C45400943CC2 /* THFListener.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = THFListener.m; sourceTree = "<group>"; };
+		EDFF05412260E83800943CC2 /* Static Server.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Static Server.entitlements"; sourceTree = "<group>"; };
+		EDFF05422260F9A100943CC2 /* THFListenerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = THFListenerTests.m; sourceTree = "<group>"; };
+		EDFF05442260FF1C00943CC2 /* THFSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THFSocket.h; sourceTree = "<group>"; };
+		EDFF05452260FF1C00943CC2 /* THFSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = THFSocket.m; sourceTree = "<group>"; };
+		EDFF05472261027100943CC2 /* THFSocketTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = THFSocketTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +98,7 @@
 		EDFF05192260B60E00943CC2 /* Static Server */ = {
 			isa = PBXGroup;
 			children = (
+				EDFF05412260E83800943CC2 /* Static Server.entitlements */,
 				EDFF051A2260B60E00943CC2 /* AppDelegate.h */,
 				EDFF051B2260B60E00943CC2 /* AppDelegate.m */,
 				EDFF051D2260B60F00943CC2 /* Assets.xcassets */,
@@ -84,6 +106,15 @@
 				EDFF05222260B60F00943CC2 /* Info.plist */,
 				EDFF05232260B60F00943CC2 /* main.m */,
 				EDFF05252260B60F00943CC2 /* Static_Server.entitlements */,
+				EDFF05392260B89100943CC2 /* Server.h */,
+				EDFF053A2260B89100943CC2 /* Server.m */,
+				EDFF053B2260B89100943CC2 /* Server.xib */,
+				EDFF053E2260C45400943CC2 /* THFListener.h */,
+				EDFF053F2260C45400943CC2 /* THFListener.m */,
+				EDFF05442260FF1C00943CC2 /* THFSocket.h */,
+				EDFF05452260FF1C00943CC2 /* THFSocket.m */,
+				ED870A252264D8EC007EEB60 /* THFHTTPRequest.h */,
+				ED870A262264D8ED007EEB60 /* THFHTTPRequest.m */,
 			);
 			path = "Static Server";
 			sourceTree = "<group>";
@@ -93,6 +124,9 @@
 			children = (
 				EDFF052E2260B60F00943CC2 /* Static_ServerTests.m */,
 				EDFF05302260B60F00943CC2 /* Info.plist */,
+				EDFF05422260F9A100943CC2 /* THFListenerTests.m */,
+				EDFF05472261027100943CC2 /* THFSocketTests.m */,
+				ED870A282264D911007EEB60 /* THFHTTPRequestTests.m */,
 			);
 			path = "Static ServerTests";
 			sourceTree = "<group>";
@@ -146,6 +180,11 @@
 				TargetAttributes = {
 					EDFF05162260B60E00943CC2 = {
 						CreatedOnToolsVersion = 10.2;
+						SystemCapabilities = {
+							com.apple.Sandbox = {
+								enabled = 1;
+							};
+						};
 					};
 					EDFF05292260B60F00943CC2 = {
 						CreatedOnToolsVersion = 10.2;
@@ -179,6 +218,7 @@
 			files = (
 				EDFF051E2260B60F00943CC2 /* Assets.xcassets in Resources */,
 				EDFF05212260B60F00943CC2 /* MainMenu.xib in Resources */,
+				EDFF053D2260B89100943CC2 /* Server.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -196,6 +236,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EDFF05402260C45400943CC2 /* THFListener.m in Sources */,
+				EDFF05462260FF1C00943CC2 /* THFSocket.m in Sources */,
+				ED870A272264D8ED007EEB60 /* THFHTTPRequest.m in Sources */,
+				EDFF053C2260B89100943CC2 /* Server.m in Sources */,
 				EDFF05242260B60F00943CC2 /* main.m in Sources */,
 				EDFF051C2260B60E00943CC2 /* AppDelegate.m in Sources */,
 			);
@@ -205,6 +249,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EDFF05432260F9A100943CC2 /* THFListenerTests.m in Sources */,
+				EDFF05482261027100943CC2 /* THFSocketTests.m in Sources */,
+				ED870A292264D911007EEB60 /* THFHTTPRequestTests.m in Sources */,
 				EDFF052F2260B60F00943CC2 /* Static_ServerTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -346,7 +393,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = "Static Server/Static_Server.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "Static Server/Static Server.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 4SBM62HJHU;
@@ -364,7 +411,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = "Static Server/Static_Server.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "Static Server/Static Server.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 4SBM62HJHU;
