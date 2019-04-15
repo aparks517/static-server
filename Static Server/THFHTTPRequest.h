@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@class THFHTTPBody;
+extern NSString * const THFHTTPRequestErrorDomain;
 
 /**
  Represents an HTTP request-line and headers. Can parse from dispatch data.
@@ -16,7 +16,7 @@
 @interface THFHTTPRequest : NSObject
 
 /**
- Find the length of the first request in data
+ Find the length of the first request in dispatch data
  @return Length of first request or zero if indeterminable
  */
 + (size_t)requestLength:(dispatch_data_t)data;
@@ -42,14 +42,9 @@
 @property NSInteger minorVersion;
 
 /**
- Header fields. Keys are lower-cased.
+ Header fields. Keys are lower-cased when parsing.
  */
 @property NSMutableDictionary<NSString *, NSString *> *headerFields;
-
-/**
- Request body
- */
-@property THFHTTPBody *body;
 
 /**
  Parse request from data

@@ -68,6 +68,6 @@
     XCTAssertEqualObjects(req.headerFields[@"user-agent"], @"test");
 }
 
-// TODO: test error responses
+// TODO: test parse errors
 
 @end

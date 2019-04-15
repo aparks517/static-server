@@ -43,7 +43,6 @@
 		EDFF05202260B60F00943CC2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		EDFF05222260B60F00943CC2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EDFF05232260B60F00943CC2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		EDFF05252260B60F00943CC2 /* Static_Server.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Static_Server.entitlements; sourceTree = "<group>"; };
 		EDFF052A2260B60F00943CC2 /* Static ServerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Static ServerTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDFF052E2260B60F00943CC2 /* Static_ServerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Static_ServerTests.m; sourceTree = "<group>"; };
 		EDFF05302260B60F00943CC2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -105,7 +104,6 @@
 				EDFF051F2260B60F00943CC2 /* MainMenu.xib */,
 				EDFF05222260B60F00943CC2 /* Info.plist */,
 				EDFF05232260B60F00943CC2 /* main.m */,
-				EDFF05252260B60F00943CC2 /* Static_Server.entitlements */,
 				EDFF05392260B89100943CC2 /* Server.h */,
 				EDFF053A2260B89100943CC2 /* Server.m */,
 				EDFF053B2260B89100943CC2 /* Server.xib */,

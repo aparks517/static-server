@@ -8,8 +8,7 @@
 
 #import "THFHTTPRequest.h"
 
-#import "THFHTTPBody.h"
-#import "NSError+THFHTTPError.h"
+NSString * const THFHTTPRequestErrorDomain = @"THFHTTPRequestErrorDomain";
 
 @implementation THFHTTPRequest
 
@@ -55,22 +54,21 @@
     if (!(self = [self init]))
         return nil;
     
-    // TODO: return NSError with parse error details
-    
-    // Make data contiguous and get pointer to and length of region
+    // Make data contiguous, get pointer to and length of region, make it a string
     const void *buffer;
     size_t length;
     data = dispatch_data_create_map(data, &buffer, &length);
-    
-    // String from data
     NSString *string = [[NSString alloc] initWithBytes:buffer length:length encoding:NSASCIIStringEncoding];
     
     // Lines from string. If there is not at least a request-line, return nil
     NSArray *lines = [string componentsSeparatedByString:@"\r\n"];
     if ([lines count] < 3) {
-        *error = [NSError THFHTTPErrorWithStatus:400
-                                     description:@"Could not parse request line"
-                                          reason:@"Not present"];
+        if (error)
+            *error = [NSError errorWithDomain:THFHTTPRequestErrorDomain
+                                         code:0
+                                     userInfo:@{NSLocalizedDescriptionKey: @"Could not parse request line",
+                                                NSLocalizedFailureReasonErrorKey: @"Not present"
+                                                }];
         return nil;
     }
     
@@ -78,9 +76,12 @@
     // method, URI, and version
     NSArray *requestLineParts = [lines[0] componentsSeparatedByString:@" "];
     if (requestLineParts.count != 3) {
-        *error = [NSError THFHTTPErrorWithStatus:400
-                                     description:@"Could not parse request line"
-                                          reason:@"Wrong number of parts"];
+        if (error)
+            *error = [NSError errorWithDomain:THFHTTPRequestErrorDomain
+                                         code:0
+                                     userInfo:@{NSLocalizedDescriptionKey: @"Could not parse request line",
+                                                NSLocalizedFailureReasonErrorKey: @"Wrong number of parts"
+                                                }];
         return nil;
     }
     _method = requestLineParts[0];
@@ -96,9 +97,12 @@
         [version characterAtIndex:7] < '0' ||
         [version characterAtIndex:7] > '9')
     {
-        *error = [NSError THFHTTPErrorWithStatus:400
-                                     description:@"Could not parse request line"
-                                          reason:@"Bad version part"];
+        if (error)
+            *error = [NSError errorWithDomain:THFHTTPRequestErrorDomain
+                                         code:0
+                                     userInfo:@{NSLocalizedDescriptionKey: @"Could not parse request line",
+                                                NSLocalizedFailureReasonErrorKey: @"Bad version part"
+                                                }];
         return nil;
     }
     _majorVersion = [version characterAtIndex:5] - '0';
@@ -118,9 +122,12 @@
         // Field name and field value are separated by colon
         NSRange colonRange = [line rangeOfString:@":"];
         if (colonRange.location == NSNotFound) {
-            *error = [NSError THFHTTPErrorWithStatus:400
-                                         description:@"Could not parse header"
-                                              reason:@"No separator"];
+            if (error)
+                *error = [NSError errorWithDomain:THFHTTPRequestErrorDomain
+                                             code:0
+                                         userInfo:@{NSLocalizedDescriptionKey: @"Could not parse header",
+                                                    NSLocalizedFailureReasonErrorKey: @"No separator"
+                                                    }];
             return nil;
         }
         
@@ -129,9 +136,12 @@
         NSRange nameRange = NSMakeRange(0, colonRange.location);
         NSString *name = [line substringWithRange:nameRange].lowercaseString;
         if ([name rangeOfCharacterFromSet:whitespace].location != NSNotFound) {
-            *error = [NSError THFHTTPErrorWithStatus:400
-                                         description:@"Could not parse header"
-                                              reason:@"Whitespace in name"];
+            if (error)
+                *error = [NSError errorWithDomain:THFHTTPRequestErrorDomain
+                                             code:0
+                                         userInfo:@{NSLocalizedDescriptionKey: @"Could not parse header",
+                                                    NSLocalizedFailureReasonErrorKey: @"Whitespace in name"
+                                                    }];
             return nil;
         }
         
