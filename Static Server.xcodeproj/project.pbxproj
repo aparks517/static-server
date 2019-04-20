@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		ED870A272264D8ED007EEB60 /* THFHTTPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = ED870A262264D8ED007EEB60 /* THFHTTPRequest.m */; };
 		ED870A292264D911007EEB60 /* THFHTTPRequestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = ED870A282264D911007EEB60 /* THFHTTPRequestTests.m */; };
+		ED870A2F2264DDB0007EEB60 /* THFHTTPBody.m in Sources */ = {isa = PBXBuildFile; fileRef = ED870A2D2264DDB0007EEB60 /* THFHTTPBody.m */; };
+		ED870A312264DDC3007EEB60 /* THFHTTPBodyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = ED870A302264DDC2007EEB60 /* THFHTTPBodyTests.m */; };
 		EDFF051C2260B60E00943CC2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EDFF051B2260B60E00943CC2 /* AppDelegate.m */; };
 		EDFF051E2260B60F00943CC2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EDFF051D2260B60F00943CC2 /* Assets.xcassets */; };
 		EDFF05212260B60F00943CC2 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDFF051F2260B60F00943CC2 /* MainMenu.xib */; };
@@ -36,6 +38,9 @@
 		ED870A252264D8EC007EEB60 /* THFHTTPRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THFHTTPRequest.h; sourceTree = "<group>"; };
 		ED870A262264D8ED007EEB60 /* THFHTTPRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = THFHTTPRequest.m; sourceTree = "<group>"; };
 		ED870A282264D911007EEB60 /* THFHTTPRequestTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = THFHTTPRequestTests.m; sourceTree = "<group>"; };
+		ED870A2D2264DDB0007EEB60 /* THFHTTPBody.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = THFHTTPBody.m; sourceTree = "<group>"; };
+		ED870A2E2264DDB0007EEB60 /* THFHTTPBody.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THFHTTPBody.h; sourceTree = "<group>"; };
+		ED870A302264DDC2007EEB60 /* THFHTTPBodyTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = THFHTTPBodyTests.m; sourceTree = "<group>"; };
 		EDFF05172260B60E00943CC2 /* Static Server.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Static Server.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDFF051A2260B60E00943CC2 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		EDFF051B2260B60E00943CC2 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -113,6 +118,8 @@
 				EDFF05452260FF1C00943CC2 /* THFSocket.m */,
 				ED870A252264D8EC007EEB60 /* THFHTTPRequest.h */,
 				ED870A262264D8ED007EEB60 /* THFHTTPRequest.m */,
+				ED870A2E2264DDB0007EEB60 /* THFHTTPBody.h */,
+				ED870A2D2264DDB0007EEB60 /* THFHTTPBody.m */,
 			);
 			path = "Static Server";
 			sourceTree = "<group>";
@@ -125,6 +132,7 @@
 				EDFF05422260F9A100943CC2 /* THFListenerTests.m */,
 				EDFF05472261027100943CC2 /* THFSocketTests.m */,
 				ED870A282264D911007EEB60 /* THFHTTPRequestTests.m */,
+				ED870A302264DDC2007EEB60 /* THFHTTPBodyTests.m */,
 			);
 			path = "Static ServerTests";
 			sourceTree = "<group>";
@@ -236,6 +244,7 @@
 			files = (
 				EDFF05402260C45400943CC2 /* THFListener.m in Sources */,
 				EDFF05462260FF1C00943CC2 /* THFSocket.m in Sources */,
+				ED870A2F2264DDB0007EEB60 /* THFHTTPBody.m in Sources */,
 				ED870A272264D8ED007EEB60 /* THFHTTPRequest.m in Sources */,
 				EDFF053C2260B89100943CC2 /* Server.m in Sources */,
 				EDFF05242260B60F00943CC2 /* main.m in Sources */,
@@ -248,6 +257,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EDFF05432260F9A100943CC2 /* THFListenerTests.m in Sources */,
+				ED870A312264DDC3007EEB60 /* THFHTTPBodyTests.m in Sources */,
 				EDFF05482261027100943CC2 /* THFSocketTests.m in Sources */,
 				ED870A292264D911007EEB60 /* THFHTTPRequestTests.m in Sources */,
 				EDFF052F2260B60F00943CC2 /* Static_ServerTests.m in Sources */,
