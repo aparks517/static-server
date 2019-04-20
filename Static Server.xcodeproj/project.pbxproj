@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		ED55E84F226B4B4E00FE46A2 /* THFHTTPProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = ED55E84E226B4B4E00FE46A2 /* THFHTTPProtocol.m */; };
+		ED55E851226B4B6600FE46A2 /* THFHTTPProtocolTests.m in Sources */ = {isa = PBXBuildFile; fileRef = ED55E850226B4B6600FE46A2 /* THFHTTPProtocolTests.m */; };
 		ED6A8A72226B445300F7D42B /* THFHTTPResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = ED6A8A71226B445300F7D42B /* THFHTTPResponse.m */; };
 		ED6A8A74226B447000F7D42B /* THFHTTPResponseTests.m in Sources */ = {isa = PBXBuildFile; fileRef = ED6A8A73226B447000F7D42B /* THFHTTPResponseTests.m */; };
 		ED870A272264D8ED007EEB60 /* THFHTTPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = ED870A262264D8ED007EEB60 /* THFHTTPRequest.m */; };
@@ -37,6 +39,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		ED55E84D226B4B4E00FE46A2 /* THFHTTPProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THFHTTPProtocol.h; sourceTree = "<group>"; };
+		ED55E84E226B4B4E00FE46A2 /* THFHTTPProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = THFHTTPProtocol.m; sourceTree = "<group>"; };
+		ED55E850226B4B6600FE46A2 /* THFHTTPProtocolTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = THFHTTPProtocolTests.m; sourceTree = "<group>"; };
 		ED6A8A70226B445300F7D42B /* THFHTTPResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THFHTTPResponse.h; sourceTree = "<group>"; };
 		ED6A8A71226B445300F7D42B /* THFHTTPResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = THFHTTPResponse.m; sourceTree = "<group>"; };
 		ED6A8A73226B447000F7D42B /* THFHTTPResponseTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = THFHTTPResponseTests.m; sourceTree = "<group>"; };
@@ -127,6 +132,8 @@
 				ED870A2D2264DDB0007EEB60 /* THFHTTPBody.m */,
 				ED6A8A70226B445300F7D42B /* THFHTTPResponse.h */,
 				ED6A8A71226B445300F7D42B /* THFHTTPResponse.m */,
+				ED55E84D226B4B4E00FE46A2 /* THFHTTPProtocol.h */,
+				ED55E84E226B4B4E00FE46A2 /* THFHTTPProtocol.m */,
 			);
 			path = "Static Server";
 			sourceTree = "<group>";
@@ -141,6 +148,7 @@
 				ED870A282264D911007EEB60 /* THFHTTPRequestTests.m */,
 				ED870A302264DDC2007EEB60 /* THFHTTPBodyTests.m */,
 				ED6A8A73226B447000F7D42B /* THFHTTPResponseTests.m */,
+				ED55E850226B4B6600FE46A2 /* THFHTTPProtocolTests.m */,
 			);
 			path = "Static ServerTests";
 			sourceTree = "<group>";
@@ -256,6 +264,7 @@
 				ED870A272264D8ED007EEB60 /* THFHTTPRequest.m in Sources */,
 				EDFF053C2260B89100943CC2 /* Server.m in Sources */,
 				ED6A8A72226B445300F7D42B /* THFHTTPResponse.m in Sources */,
+				ED55E84F226B4B4E00FE46A2 /* THFHTTPProtocol.m in Sources */,
 				EDFF05242260B60F00943CC2 /* main.m in Sources */,
 				EDFF051C2260B60E00943CC2 /* AppDelegate.m in Sources */,
 			);
@@ -267,6 +276,7 @@
 			files = (
 				EDFF05432260F9A100943CC2 /* THFListenerTests.m in Sources */,
 				ED6A8A74226B447000F7D42B /* THFHTTPResponseTests.m in Sources */,
+				ED55E851226B4B6600FE46A2 /* THFHTTPProtocolTests.m in Sources */,
 				ED870A312264DDC3007EEB60 /* THFHTTPBodyTests.m in Sources */,
 				EDFF05482261027100943CC2 /* THFSocketTests.m in Sources */,
 				ED870A292264D911007EEB60 /* THFHTTPRequestTests.m in Sources */,

@@ -79,7 +79,7 @@ static NSDictionary *reasons;
 
 - (dispatch_data_t)data {
     // The semantics of certain status codes are that no payload will be included
-    BOOL includePayload = _code != 205 && _code != 204 && _code != 101 && _code != 100;
+    BOOL includePayload = _code != 205 && _code != 204 && _code >= 200;
     
     // Set content-length if payload will be included
     if (includePayload)
