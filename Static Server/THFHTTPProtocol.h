@@ -37,7 +37,7 @@
 /**
  Delegate will receive incoming requests
  */
-@property id<THFHTTPProtocolDelegate> delegate;
+@property (weak) id<THFHTTPProtocolDelegate> delegate;
 
 /**
  Designated initializer

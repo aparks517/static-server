@@ -34,13 +34,14 @@
             return;
         
         NSError *error;
+        __weak id weakSelf = self;
         _listener = [[THFListener alloc] initWithAddress:@"127.0.0.1" port:port.integerValue backlog:128 error:&error block:^(int fd) {
             THFSocket *socket = [[THFSocket alloc] initWithFileDescriptor:fd bufferSize:1024];
             THFHTTPProtocol *protocol = [[THFHTTPProtocol alloc] initWithSocket:socket
                                                                     maxBodySize:1024 * 1024
                                                                         timeout:5000
                                                                    errorTimeout:500];
-            protocol.delegate = self;
+            protocol.delegate = weakSelf;
             socket.delegate = protocol;
             socket.buffer = dispatch_data_empty;
         }];
