@@ -10,7 +10,6 @@
 #import <arpa/inet.h>
 
 @implementation THFListener {
-    int _socket;
     dispatch_queue_t _queue;
     dispatch_source_t _source;
 }
@@ -25,7 +24,8 @@
         return nil;
     
     // Create IPv4 TCP socket
-    if ((_socket = socket(PF_INET, SOCK_STREAM, IPPROTO_TCP)) == -1) {
+    int listenFd;
+    if ((listenFd = socket(PF_INET, SOCK_STREAM, IPPROTO_TCP)) == -1) {
         if (error)
             *error = [NSError errorWithDomain:NSPOSIXErrorDomain code:errno userInfo:nil];
         NSLog(@"Socket not created: %s (%d)", strerror(errno), errno);
@@ -34,7 +34,7 @@
     
     // Set SO_REUSEADDR on socket (this allows the server to bind an
     // address/port combination even if it is in linger state)
-    if (setsockopt(_socket, SOL_SOCKET, SO_REUSEADDR, &(int){1}, sizeof(int)) == -1) {
+    if (setsockopt(listenFd, SOL_SOCKET, SO_REUSEADDR, &(int){1}, sizeof(int)) == -1) {
         if (error)
             *error = [NSError errorWithDomain:NSPOSIXErrorDomain code:errno userInfo:nil];
         NSLog(@"Socket option not set: %s (%d)", strerror(errno), errno);
@@ -43,7 +43,7 @@
     
     // Make socket non-blocking (in case a connection is reset while
     // waiting to accept, so the event handler doesn't block.)
-    if (fcntl(_socket, F_SETFL, O_NONBLOCK) == -1) {
+    if (fcntl(listenFd, F_SETFL, O_NONBLOCK) == -1) {
         if (error)
             *error = [NSError errorWithDomain:NSPOSIXErrorDomain code:errno userInfo:nil];
         NSLog(@"Non-blocking flag not set: %s (%d)", strerror(errno), errno);
@@ -70,7 +70,7 @@
     }
 
     // Bind socket to address
-    if (bind(_socket, (struct sockaddr *)&addr, sizeof(addr))) {
+    if (bind(listenFd, (struct sockaddr *)&addr, sizeof(addr))) {
         if (error)
             *error = [NSError errorWithDomain:NSPOSIXErrorDomain code:errno userInfo:nil];
         NSLog(@"Socket not bound: %s (%d)", strerror(errno), errno);
@@ -79,7 +79,7 @@
     
     // Get bound address (so selected ephemeral port can be captured)
     socklen_t addr_len = sizeof(addr);
-    if (getsockname(_socket, (struct sockaddr *)&addr, &addr_len)) {
+    if (getsockname(listenFd, (struct sockaddr *)&addr, &addr_len)) {
         if (error)
             *error = [NSError errorWithDomain:NSPOSIXErrorDomain code:errno userInfo:nil];
         NSLog(@"Socket address not retrieved: %s (%d)", strerror(errno), errno);
@@ -90,7 +90,7 @@
     _port = ntohs(addr.sin_port);
     
     // Listen on socket
-    if (listen(_socket, backlog) == -1) {
+    if (listen(listenFd, backlog) == -1) {
         if (error)
             *error = [NSError errorWithDomain:NSPOSIXErrorDomain code:errno userInfo:nil];
         NSLog(@"Socket not listening: %s (%d)", strerror(errno), errno);
@@ -101,7 +101,7 @@
     _queue = dispatch_queue_create("com.parksdigital.tophat.server", DISPATCH_QUEUE_SERIAL);
     
     // Dispatch source for socket readable (new connection)
-    if (!(_source = dispatch_source_create(DISPATCH_SOURCE_TYPE_READ, _socket, 0, _queue))) {
+    if (!(_source = dispatch_source_create(DISPATCH_SOURCE_TYPE_READ, listenFd, 0, _queue))) {
         if (error)
             *error = [NSError errorWithDomain:NSPOSIXErrorDomain code:errno userInfo:nil];
         NSLog(@"Dispatch source not created: %s (%d)", strerror(errno), errno);
@@ -111,8 +111,8 @@
     // Accept connection when socket is readable
     dispatch_source_set_event_handler(_source, ^{
         // Accept connection
-        int socket = accept(self->_socket, NULL, 0);
-        if (socket == -1) {
+        int connFd = accept(listenFd, NULL, 0);
+        if (connFd == -1) {
             NSLog(@"Connection not accepted: %s (%d)", strerror(errno), errno);
             return;
         }
@@ -120,20 +120,19 @@
         // Disable SIGPIPE on socket file descriptor. Instead of SIGPIPE, EPIPE
         // will be returned if libdispatch tries to write to the socket after
         // it is closed. SIGPIPE would cause the program to terminate.
-        if (setsockopt(socket, SOL_SOCKET, SO_NOSIGPIPE, &(int){1}, sizeof(int)) == -1) {
+        if (setsockopt(connFd, SOL_SOCKET, SO_NOSIGPIPE, &(int){1}, sizeof(int)) == -1) {
             NSLog(@"Socket option not set: %s (%d)", strerror(errno), errno);
             return;
         }
         
         // Run block with new connection socket
-        block(socket);
+        block(connFd);
     });
     
     // Close listening socket when dispatch source is canceled
     // (when the server is deallocated)
     dispatch_source_set_cancel_handler(_source, ^{
-        close(self->_socket);
-        self->_socket = -1;
+        close(listenFd);
     });
     
     // Enable dispatch source
@@ -147,8 +146,6 @@
     // Otherwise, if the socket is set, close it.
     if (_source && !dispatch_source_testcancel(_source))
         dispatch_source_cancel(_source);
-    else if (_socket != -1)
-        close(_socket);
 }
 
 @end
