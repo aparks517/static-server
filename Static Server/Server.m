@@ -23,16 +23,21 @@
 
 - (void)windowDidLoad {
     [super windowDidLoad];
+    
+    // Initialize port (starts listener on ephemeral port)
     self.port = @(0);
 }
 
 - (void)setPort:(NSNumber *)port {
     @synchronized(self) {
+        // Capture
         _port = port;
         
+        // If there's already a listener listening on the port, return early
         if (_listener && port.integerValue == _listener.port)
             return;
         
+        // New listener on new port number
         NSError *error;
         __weak id weakSelf = self;
         _listener = [[THFListener alloc] initWithAddress:@"127.0.0.1" port:port.integerValue backlog:128 error:&error block:^(int fd) {
@@ -50,6 +55,7 @@
                 [[NSAlert alertWithError:error] beginSheetModalForWindow:self.window completionHandler:nil];
             });
         
+        // Use setter to set port (gives observers a chance to get ephemeral port, if used)
         self.port = @(_listener.port);
     }
 }
@@ -61,10 +67,14 @@
 }
 
 - (IBAction)openURL:(id)sender {
+    // Open server base URL in default program
     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://localhost:%@/", self.port]];
     [NSWorkspace.sharedWorkspace openURL:url];
 }
 
+/**
+ HTTP protocol delegate: handle incoming HTTP requests by serving files.
+ */
 - (void)HTTPProtocol:(THFHTTPProtocol *)protocol
      receivedRequest:(THFHTTPRequest *)request
             withBody:(THFHTTPBody *)body
@@ -72,8 +82,8 @@
     // Response
     THFHTTPResponse *response = [[THFHTTPResponse alloc] init];
 
-    // Disable caching; this is a local development server, so we request
-    // that the client not cache anything.
+    // This is a local development server, so we request that the client
+    // not cache anything.
     [response setValue:@"no-cache" forHeader:@"cache-control"];
 
     // Only GET is supported
@@ -83,7 +93,7 @@
         return [protocol send:response];
     }
     
-    // Requested file
+    // Apply path from request URI to document root URL to get URL of file to serve
     NSURL *fileURL = _root;
     if (request.URI.pathComponents.count > 1) {
         NSRange range = NSMakeRange(1, request.URI.pathComponents.count - 1);
@@ -91,19 +101,19 @@
         fileURL = [NSURL fileURLWithPath:[components componentsJoinedByString:@"/"] relativeToURL:_root];
     }
 
-    // File must be inside served directory
+    // File to serve must be inside document root
     if (![fileURL.standardizedURL.path hasPrefix:_root.path]) {
         response.code = 403;
         response.body = [@"Requested resource outside document root" dataUsingEncoding:NSUTF8StringEncoding];
         return [protocol send:response];
     }
 
-    // If file is a directory, append index.html
+    // If file to serve is a directory, append index.html to URL of file to serve
     BOOL isDirectory;
     if ([NSFileManager.defaultManager fileExistsAtPath:fileURL.path isDirectory:&isDirectory] && isDirectory)
         fileURL = [fileURL URLByAppendingPathComponent:@"index.html"];
     
-    // File must exist
+    // File to serve must exist
     if (![NSFileManager.defaultManager fileExistsAtPath:fileURL.path]) {
         response.code = 404;
         response.body = [@"File does not exist" dataUsingEncoding:NSUTF8StringEncoding];

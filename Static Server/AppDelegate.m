@@ -26,11 +26,6 @@
                                              object:nil];
 }
 
-
-- (void)applicationWillTerminate:(NSNotification *)aNotification {
-    // Insert code here to tear down your application
-}
-
 - (IBAction)open:(id)sender {
     // Get path to serve from open panel
     NSOpenPanel *panel = [NSOpenPanel openPanel];
