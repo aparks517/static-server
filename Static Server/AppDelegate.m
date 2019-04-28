@@ -44,4 +44,14 @@
     [_servers removeObject:[sender.object windowController]];
 }
 
+- (IBAction)showHelp:(id)sender {
+    // Open HTML help from main bundle in Safari
+    NSURL *helpURL = [NSBundle.mainBundle URLForResource:@"Help-Index" withExtension:@"html"];
+    [NSWorkspace.sharedWorkspace openURLs:@[helpURL]
+                  withAppBundleIdentifier:@"com.apple.Safari"
+                                  options:NSWorkspaceLaunchDefault
+           additionalEventParamDescriptor:nil
+                        launchIdentifiers:nil];
+}
+
 @end

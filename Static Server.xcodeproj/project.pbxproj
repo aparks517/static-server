@@ -15,6 +15,7 @@
 		ED870A292264D911007EEB60 /* THFHTTPRequestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = ED870A282264D911007EEB60 /* THFHTTPRequestTests.m */; };
 		ED870A2F2264DDB0007EEB60 /* THFHTTPBody.m in Sources */ = {isa = PBXBuildFile; fileRef = ED870A2D2264DDB0007EEB60 /* THFHTTPBody.m */; };
 		ED870A312264DDC3007EEB60 /* THFHTTPBodyTests.m in Sources */ = {isa = PBXBuildFile; fileRef = ED870A302264DDC2007EEB60 /* THFHTTPBodyTests.m */; };
+		EDD873462275E5D20039B328 /* Help-Index.html in Resources */ = {isa = PBXBuildFile; fileRef = EDD873452275E5D20039B328 /* Help-Index.html */; };
 		EDFF051C2260B60E00943CC2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EDFF051B2260B60E00943CC2 /* AppDelegate.m */; };
 		EDFF051E2260B60F00943CC2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EDFF051D2260B60F00943CC2 /* Assets.xcassets */; };
 		EDFF05212260B60F00943CC2 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = EDFF051F2260B60F00943CC2 /* MainMenu.xib */; };
@@ -51,6 +52,7 @@
 		ED870A2D2264DDB0007EEB60 /* THFHTTPBody.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = THFHTTPBody.m; sourceTree = "<group>"; };
 		ED870A2E2264DDB0007EEB60 /* THFHTTPBody.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = THFHTTPBody.h; sourceTree = "<group>"; };
 		ED870A302264DDC2007EEB60 /* THFHTTPBodyTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = THFHTTPBodyTests.m; sourceTree = "<group>"; };
+		EDD873452275E5D20039B328 /* Help-Index.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = "Help-Index.html"; sourceTree = "<group>"; };
 		EDFF05172260B60E00943CC2 /* Static Server.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Static Server.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDFF051A2260B60E00943CC2 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		EDFF051B2260B60E00943CC2 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -134,6 +136,7 @@
 				ED6A8A71226B445300F7D42B /* THFHTTPResponse.m */,
 				ED55E84D226B4B4E00FE46A2 /* THFHTTPProtocol.h */,
 				ED55E84E226B4B4E00FE46A2 /* THFHTTPProtocol.m */,
+				EDD873452275E5D20039B328 /* Help-Index.html */,
 			);
 			path = "Static Server";
 			sourceTree = "<group>";
@@ -238,6 +241,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EDD873462275E5D20039B328 /* Help-Index.html in Resources */,
 				EDFF051E2260B60F00943CC2 /* Assets.xcassets in Resources */,
 				EDFF05212260B60F00943CC2 /* MainMenu.xib in Resources */,
 				EDFF053D2260B89100943CC2 /* Server.xib in Resources */,
