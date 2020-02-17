@@ -432,6 +432,7 @@
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 4SBM62HJHU;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = "Static Server/Info.plist";
@@ -439,6 +440,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.parksdigital.Static-Server";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -452,6 +454,7 @@
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 4SBM62HJHU;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = "Static Server/Info.plist";
@@ -459,6 +462,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.parksdigital.Static-Server";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
