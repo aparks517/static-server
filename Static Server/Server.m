@@ -123,7 +123,8 @@
     // Get Uniform Type Identifier (UTI) of file and translate to MIME type
     NSString *uti = [NSWorkspace.sharedWorkspace typeOfFile:fileURL.path error:nil];
     NSString *mimeType = (__bridge_transfer NSString *)UTTypeCopyPreferredTagWithClass((__bridge CFStringRef)uti, kUTTagClassMIMEType);
-    [response setValue:mimeType forHeader:@"content-type"];
+    if (mimeType)
+        [response setValue:mimeType forHeader:@"content-type"];
     
     // Send file
     response.code = 200;
