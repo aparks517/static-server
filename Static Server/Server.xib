@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="15705" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14490.70"/>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="15705"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -41,6 +42,7 @@
                         </buttonCell>
                         <connections>
                             <action selector="openURL:" target="-2" id="Ebs-oy-nzz"/>
+                            <outlet property="nextKeyView" destination="Q0n-36-AQd" id="Vvd-8B-qaZ"/>
                         </connections>
                     </button>
                     <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Q0n-36-AQd">
@@ -57,6 +59,7 @@
                         </textFieldCell>
                         <connections>
                             <binding destination="-2" name="value" keyPath="port" id="1BH-SF-wix"/>
+                            <outlet property="nextKeyView" destination="5KL-jm-9KC" id="gcz-fw-fPb"/>
                         </connections>
                     </textField>
                 </subviews>
@@ -68,6 +71,7 @@
                     </dictionary>
                 </binding>
                 <outlet property="delegate" destination="-2" id="0bl-1N-AYu"/>
+                <outlet property="initialFirstResponder" destination="5KL-jm-9KC" id="YyP-dx-eyW"/>
             </connections>
             <point key="canvasLocation" x="37" y="43"/>
         </window>
